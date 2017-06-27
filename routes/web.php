@@ -11,12 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-		$name = 'Laracast';
+Route::get('/tasks', function () {
 		$tasks = DB::table('tasks')->get();
 
+    return view('tasks.index', compact('tasks'));
+});
+
+Route::get('/tasks/{task}', function ($id) {
+		$task = DB::table('tasks')->find($id);
+
+    return view('tasks.show', compact('task'));
+});
+
+Route::get('/', function () {
+		$name = 'Laracast';
 		// compact creates an array with the key of name and a value of the variable $name
-    return view('welcome', compact('name', 'tasks'));
+    return view('welcome', compact('name'));
 });
 
 Route::get('about', function () {
