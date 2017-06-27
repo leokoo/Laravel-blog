@@ -13,11 +13,8 @@
 
 Route::get('/', function () {
 		$name = 'Laracast';
-		$tasks = [
-		'Finish Laravel Starter Lessons',
-		'Go to the gym',
-		'Meet Fiona for dinner'
-		];
+		$tasks = DB::table('tasks')->get();
+
 		// compact creates an array with the key of name and a value of the variable $name
     return view('welcome', compact('name', 'tasks'));
 });
