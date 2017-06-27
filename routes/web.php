@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+		$name = 'Laracast';
+		// compact creates an array with the key of name and a value of the variable $name
+    return view('welcome', compact('name'));
 });
 
 Route::get('about', function () {
