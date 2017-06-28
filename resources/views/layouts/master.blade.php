@@ -19,23 +19,24 @@
   </head>
 
   <body>
-		@include('layouts.nav')
+		
+    @include('layouts.nav')
  
     <div class="container">
 
-    @include('layouts.header')
+     @include('layouts.header')
 
-  <div class="row">
+      <div class="row">
 
-    @yield('content')
+        @yield('content')
 
-    @include('layouts.sidebar')
+        @include('layouts.sidebar')
 
-  </div><!-- /.row -->
+      </div><!-- /.row -->
 
-</div><!-- /.container -->
+    </div><!-- /.container -->
 
-    @include('layouts.footer')
+      @include('layouts.footer')
 
   </body>
 </html>
