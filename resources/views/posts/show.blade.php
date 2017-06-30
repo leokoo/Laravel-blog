@@ -9,8 +9,8 @@
 
 	@if(count($post->comments))
 		<hr>
-		
-		<h3>Comments:</h3>
+
+		<h4>Comments:</h4>
 	@endif
 
 	<div class="comments">
@@ -26,6 +26,27 @@
 				@endforeach
 		</ul>
 	</div>
+
+<hr>
+	<!-- Add a comment -->
+	<div class="card">
+		<div class="card-block">
+			<form method="POST" action="/posts/{{ $post->id }}/comments">
+
+			{{ csrf_field() }}
+
+				<div class="form-group">
+					<textarea name="body" placeholder="Your Comment here" class="form-control"></textarea>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary ">Add Comment</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
 
 
 
