@@ -15,9 +15,10 @@ class PostsController extends Controller
     	return view('posts.index', compact('posts'));
     }
 
-    public function show()
+// We're using Route Model Binding - https://laravel.com/docs/5.4/routing#route-model-binding
+    public function show(Post $post)
     {
-    	return view('posts.show');
+    	return view('posts.show', compact('post'));
     }
 
     public function create()
