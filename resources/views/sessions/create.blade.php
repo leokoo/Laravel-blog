@@ -19,6 +19,8 @@
 		<div class="form-group">
 			<button class="btn btn-primary" type="submit">Sign In</button>
 		</div>
+
+		@include('layouts.errors')
 	
 	</form>
 @endsection
