@@ -8,7 +8,12 @@ class SessionsController extends Controller
 {
 	public function create()
 	{
-		
+		return view('sessions.create');
+	}
+
+	public function store()
+	{
+		// attempt to authenticate the user
 	}
 
 	public function destroy()
