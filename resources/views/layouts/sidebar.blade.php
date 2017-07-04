@@ -8,7 +8,9 @@
             <ol class="list-unstyled">
               @foreach ($archives as $stats)
                 <li>
-                  <a href="#">{{ $stats['month']. ' ' . $stats['year'] }}</a>
+                  <a href="/?month={{ $stats['month'] }}&year={{ $stats['year'] }}">
+                    {{ $stats['month']. ' ' . $stats['year'] }}
+                  </a>
                 </li>
               @endforeach
             </ol>
