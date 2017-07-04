@@ -22,7 +22,7 @@ class PostsController extends Controller
             ->get()
             ->toArray();
 
-    	return view('posts.index', compact('posts'));
+    	return view('posts.index', compact('posts', 'archives'));
     }
 
 // We're using Route Model Binding - https://laravel.com/docs/5.4/routing#route-model-binding
