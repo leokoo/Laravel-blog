@@ -24,6 +24,7 @@ class Post extends Model
 				// ]);
     }
 
+    // https://laravel.com/docs/5.0/eloquent#query-scopes
     public function scopeFilter($query, $filters)
 	{
 		if ($month = $filters['month']) {
