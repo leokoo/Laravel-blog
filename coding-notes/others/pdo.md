@@ -1,12 +1,12 @@
 ## PDO
 
-links: 	
-	http://php.net/manual/en/language.exceptions.php
-	http://php.net/manual/en/exception.getmessage.php - getMessage() will return a description of what went wrong (the exception)
-	http://php.net/manual/en/pdostatement.fetchobject.php - PDO::FETCH_OBJ stores each row into an object
-	http://php.net/manual/en/pdo.prepare.php - Prepares a statement for execution and returns a statement obj
-	http://php.net/manual/en/pdostatement.execute.php - Executes a prepared statement
-	http://php.net/manual/en/reserved.variables.post.php - An associative array of variables passed to the current script via the HTTP POST method when using application/x-www-form-urlencoded or multipart/form-data as the HTTP Content-Type in the request.
+links: 	<br>
+	http://php.net/manual/en/language.exceptions.php <br>
+	http://php.net/manual/en/exception.getmessage.php <br> - getMessage() will return a description of what went wrong (the exception) <br>
+	http://php.net/manual/en/pdostatement.fetchobject.php <br> - PDO::FETCH_OBJ stores each row into an object <br>
+	http://php.net/manual/en/pdo.prepare.php <br> - Prepares a statement for execution and returns a statement obj <br>
+	http://php.net/manual/en/pdostatement.execute.php <br> - Executes a prepared statement <br>
+	http://php.net/manual/en/reserved.variables.post.php <br> - An associative array of variables passed to the current script via the HTTP POST method when using application/x-www-form-urlencoded or multipart/form-data as the HTTP Content-Type in the request. <br>
 
 ## To connect to the database
 
