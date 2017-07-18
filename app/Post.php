@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -22,4 +23,17 @@ class Post extends Model
 				// 'post_id' => $this->id
 				// ]);
     }
+
+    public function scopeFilter($query, $filters)
+	{
+		if ($month = $filters['month']) {
+			// whereMonth compares created_at to $month (compares column value against date)
+			$query->whereMonth('created_at', Carbon::parse($month)->month);
+		}
+
+		if ($year = $filters['year']) {
+			// whereMonth compares created_at to $month (compares column value against date)
+			$query->whereYear('created_at', $year);
+		}
+	}
 }
