@@ -19,15 +19,7 @@ class PostsController extends Controller {
 			->filter(request(['month', 'year']))
 			->get();
 
-		$archives = Post::archives();
-
-//        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-//            ->groupBy('year', 'month')
-//            ->orderByRaw('min(created_at) desc')
-//            ->get()
-//            ->toArray();
-
-		return view('posts.index', compact('posts', 'archives'));
+		return view('posts.index', compact('posts'));
 	}
 
 // We're using Route Model Binding - https://laravel.com/docs/5.4/routing#route-model-binding
