@@ -11,6 +11,8 @@
 |
 */
 
+// https://github.com/fzaninotto/Faker
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -21,4 +23,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
+});
+
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+	return [
+		'user_id' => 1,
+		'title' => $faker->sentence,
+		'body' => $faker->paragraph
+	];
 });
