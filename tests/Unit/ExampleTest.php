@@ -19,9 +19,9 @@ class ExampleTest extends TestCase
 		// Given I have two records in the database that are posts and are one month apart
 		$first = factory(Post::class)->create();
 
-		$second = factory(Post::class)->create(
-			'created_at' => \Carbon\Carbon::now()->subMonth()
-		);
+		$second = factory(Post::class)->create([
+				'created_at' => \Carbon\Carbon::now()->subMonth()
+		]);
 		// When I fetch the archives
 		$post = Post::archives();
 		// Then the response should in be in proper format (assertion)
