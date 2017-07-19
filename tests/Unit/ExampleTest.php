@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase
 {
+	use DatabaseTransactions;
     /**
      * A basic test example.
      *
@@ -24,7 +25,19 @@ class ExampleTest extends TestCase
 		]);
 		// When I fetch the archives
 		$post = Post::archives();
+
 		// Then the response should in be in proper format (assertion)
-		$this->assertCount(2, $post);
+		$this->assertEquals([
+			[
+				"year" => $first->created_at->format('Y'),
+				"month" => $first->created_at->format('F'),
+				"published" => 1
+			],
+			[
+				"year" => $second->created_at->format('Y'),
+				"month" => $second->created_at->format('F'),
+				"published" => 1
+			]
+		], $post);
     }
 }
