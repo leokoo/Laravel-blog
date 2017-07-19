@@ -15,6 +15,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+		// Given I have two records in the database that are posts and are one month apart
+		// When I fetch the archives
+		// Then the response should in be in proper format (assertion)
     }
 }
