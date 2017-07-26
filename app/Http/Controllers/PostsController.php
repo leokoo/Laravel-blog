@@ -14,8 +14,8 @@ class PostsController extends Controller {
 
 	public function index(Posts $posts)
 	{
-		dd($posts);
-		// $posts = (new \App\Repositories\Posts)->all();
+		$posts = $posts->all();
+		
 		// $posts = Post::latest()
 		// 	->filter(request(['month', 'year']))
 		// 	->get();
