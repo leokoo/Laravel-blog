@@ -6,6 +6,12 @@ use \App\Billing\Stripe;
 use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
+
+	/**
+	 * 	We're not using protected $defer = true because we have items in our boot method
+	 */
+
+	// protected $defer = true;
     /**
      * Bootstrap any application services.
      *
@@ -33,8 +39,8 @@ class AppServiceProvider extends ServiceProvider
 		 * The singleton will result in the exact same instance no matter how many times you resolve
 		 */
 
-		\App::singleton('App\Billing\Stripe', function() {
-			return new \App\Billing\Stripe(config('services.stripe.secret'));
+		$this->app->singleton(Stripe::class, function() {
+			return new Stripe(config('services.stripe.secret'));
 		});
 
 		/**
