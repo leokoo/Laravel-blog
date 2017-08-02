@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -9,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class Welcome extends Mailable
 {
+	public $user;
     use Queueable, SerializesModels;
 
     /**
@@ -16,9 +18,9 @@ class Welcome extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
