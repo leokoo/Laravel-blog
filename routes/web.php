@@ -10,6 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/**
+ * You can resolve a singleton instead of the usual bind.
+ * The singleton will result in the exact same instance no matter how many times you resolve
+ */
+
+App::bind('App\Billing\Stripe', function() {
+	return new \App\Billing\Stripe(config('services.stripe.secret'));
+});
+
+/**
+ * You can use App::make(), resolve() or app(). They'll give similar results
+ */
+$stripe = App::make('App\Billing\Stripe');
+// $stripe = resolve('App\Billing\Stripe');
+
+
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/{task}', 'TasksController@show');
 
