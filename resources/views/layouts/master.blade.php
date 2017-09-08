@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,35 +12,41 @@
     <title>Laravel Blog Template</title>
 
     <!-- Bootstrap core CSS -->
-		<link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
     <link href="/css/app.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
-		
-    @include('layouts.nav')
- 
-    <div class="container">
+<body>
 
-     @include('layouts.header')
+@include('layouts.nav')
 
-      <div class="row">
+@if ($flash = session('message'))
+    <div id="flash-message" class="alert alert-success" role="alert">
+        {{ $flash }}
+    </div>
+@endif
+
+<div class="container">
+
+    @include('layouts.header')
+
+    <div class="row">
 
         <div class="col-sm-8 blog-main">
 
-          @yield('content')
-        
+            @yield('content')
+
         </div><!-- /.blog-main -->
 
         @include('layouts.sidebar')
 
-      </div><!-- /.row -->
+    </div><!-- /.row -->
 
-    </div><!-- /.container -->
+</div><!-- /.container -->
 
-      @include('layouts.footer')
+@include('layouts.footer')
 
-  </body>
+</body>
 </html>
