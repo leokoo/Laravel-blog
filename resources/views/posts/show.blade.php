@@ -3,52 +3,60 @@
 
 @section('content')
 
-	<h2>{{ $post->title }}</h2>
+    <h2>{{ $post->title }}</h2>
 
-	{{ $post->body }}
+    @if(count($post->tags))
+        @foreach($post->tags as $tag)
+            <a href="/posts/tags/{{ $tag->name }}">
+                <li>{{ $tag->name }}</li>
+            </a>
+        @endforeach
+    @endif
 
-	@if(count($post->comments))
-		<hr>
+    {{ $post->body }}
 
-		<h4>Comments:</h4>
-	@endif
+    @if(count($post->comments))
+        <hr>
 
-	<div class="comments">
-		<ul class="list-group">
-				@foreach ($post->comments as $comment)
-				<li class="list-group-item">
-					<strong>
-						{{ $comment->created_at->diffForHumans() }}: &nbsp;	
-					</strong>
-					
-					{{ $comment->body }}
-				</li>
-				@endforeach
-		</ul>
-	</div>
+        <h4>Comments:</h4>
+    @endif
 
-<hr>
-	<!-- Add a comment -->
-	<div class="card">
-		<div class="card-block">
-			<form method="POST" action="/posts/{{ $post->id }}/comments">
+    <div class="comments">
+        <ul class="list-group">
+            @foreach ($post->comments as $comment)
+                <li class="list-group-item">
+                    <strong>
+                        {{ $comment->created_at->diffForHumans() }}: &nbsp;
+                    </strong>
 
-			{{ csrf_field() }}
+                    {{ $comment->body }}
+                </li>
+            @endforeach
+        </ul>
+    </div>
 
-				<div class="form-group">
-					<textarea name="body" placeholder="Your Comment here" class="form-control" required></textarea>
-				</div>
+    <hr>
+    <!-- Add a comment -->
+    <div class="card">
+        <div class="card-block">
+            <form method="POST" action="/posts/{{ $post->id }}/comments">
 
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary ">Add Comment</button>
-				</div>
+                {{ csrf_field() }}
 
-			</form>
+                <div class="form-group">
+                    <textarea name="body" placeholder="Your Comment here" class="form-control" required></textarea>
+                </div>
 
-			@include('layouts.errors')
-		
-		</div>
-	</div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary ">Add Comment</button>
+                </div>
+
+            </form>
+
+            @include('layouts.errors')
+
+        </div>
+    </div>
 
 
 
